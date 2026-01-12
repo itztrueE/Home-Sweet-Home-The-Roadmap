@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="買房紀錄">
+  <title>買房紀錄</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Mesh Gradient Background -->
+  <div class="mesh-gradient"></div>
+
+  <!-- Floating Orbs -->
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="orb orb--3"></div>
+
+  <!-- App Container -->
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header__left">
+        <div class="logo">
+          <div class="logo__icon">🏡</div>
+        </div>
+        <h1 class="header__title">買房紀錄</h1>
+      </div>
+
+      <nav class="nav-pills">
+        <button class="pill pill--active" data-section="section-viewing">
+          <span class="pill__dot"></span>
+          看房
+        </button>
+        <button class="pill" data-section="section-buying">
+          <span class="pill__dot"></span>
+          買房
+        </button>
+        <button class="pill" data-section="section-handover">
+          <span class="pill__dot"></span>
+          交屋
+        </button>
+        <button class="pill" data-section="section-loan">
+          <span class="pill__dot"></span>
+          貸款
+        </button>
+      </nav>
+
+      <button class="theme-toggle" aria-label="切換主題">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+    </header>
+
+    <!-- Bento Grid Layout -->
+    <main class="bento">
+      <!-- Large Progress Card -->
+      <div class="bento__item bento__item--progress">
+        <div class="progress-display">
+          <div class="progress-display__circle">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8b5cf6" />
+                  <stop offset="50%" stop-color="#ec4899" />
+                  <stop offset="100%" stop-color="#f59e0b" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="54" class="progress-display__track" />
+              <circle cx="60" cy="60" r="54" class="progress-display__fill" id="progress-ring" />
+            </svg>
+            <div class="progress-display__text">
+              <span class="progress-display__number" id="total-progress-num">0</span>
+              <span class="progress-display__percent">%</span>
+            </div>
+          </div>
+          <div class="progress-display__label">整體完成度</div>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="bento__item bento__item--stat bento__item--total">
+        <div class="stat-mini">
+          <div class="stat-mini__icon">📋</div>
+          <div class="stat-mini__content">
+            <span class="stat-mini__number" id="total-items-num">86</span>
+            <span class="stat-mini__label">總項目</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__item bento__item--stat bento__item--done">
+        <div class="stat-mini">
+          <div class="stat-mini__icon">✅</div>
+          <div class="stat-mini__content">
+            <span class="stat-mini__number" id="completed-items-num">0</span>
+            <span class="stat-mini__label">已完成</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__item bento__item--stat bento__item--pending">
+        <div class="stat-mini">
+          <div class="stat-mini__icon">⏳</div>
+          <div class="stat-mini__content">
+            <span class="stat-mini__number" id="remaining-items-num">86</span>
+            <span class="stat-mini__label">待處理</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Cards - Bento Style -->
+      <div class="bento__item bento__item--card bento__item--viewing" data-section="section-viewing">
+        <div class="card-bento">
+          <div class="card-bento__header">
+            <span class="card-bento__icon">🔍</span>
+            <span class="card-bento__badge">STEP 1</span>
+          </div>
+          <h3 class="card-bento__title">看房注意事項</h3>
+          <p class="card-bento__desc">實地看房觀察要點</p>
+          <div class="card-bento__footer">
+            <div class="card-bento__bar">
+              <div class="card-bento__bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="card-bento__stats">0/20</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__item bento__item--card bento__item--buying" data-section="section-buying">
+        <div class="card-bento">
+          <div class="card-bento__header">
+            <span class="card-bento__icon">💰</span>
+            <span class="card-bento__badge">STEP 2</span>
+          </div>
+          <h3 class="card-bento__title">買房注意事項</h3>
+          <p class="card-bento__desc">購買評估確認</p>
+          <div class="card-bento__footer">
+            <div class="card-bento__bar">
+              <div class="card-bento__bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="card-bento__stats">0/18</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__item bento__item--card bento__item--handover" data-section="section-handover">
+        <div class="card-bento">
+          <div class="card-bento__header">
+            <span class="card-bento__icon">🔑</span>
+            <span class="card-bento__badge">STEP 3</span>
+          </div>
+          <h3 class="card-bento__title">交屋注意事項</h3>
+          <p class="card-bento__desc">驗收檢查清單</p>
+          <div class="card-bento__footer">
+            <div class="card-bento__bar">
+              <div class="card-bento__bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="card-bento__stats">0/26</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento__item bento__item--card bento__item--loan" data-section="section-loan">
+        <div class="card-bento">
+          <div class="card-bento__header">
+            <span class="card-bento__icon">🏦</span>
+            <span class="card-bento__badge">STEP 4</span>
+          </div>
+          <h3 class="card-bento__title">貸款注意事項</h3>
+          <p class="card-bento__desc">房貸申請流程</p>
+          <div class="card-bento__footer">
+            <div class="card-bento__bar">
+              <div class="card-bento__bar-fill" style="width: 0%"></div>
+            </div>
+            <span class="card-bento__stats">0/22</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sections Container -->
+    <div class="sections-container">
+      <section id="section-viewing" class="section section--viewing">
+        <header class="section__header">
+          <div class="section__icon">🔍</div>
+          <div class="section__info">
+            <h2 class="section__title">看房注意事項</h2>
+            <p class="section__subtitle">實地看房時需要觀察確認的重要項目</p>
+          </div>
+          <button class="section__toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </header>
+        <div class="section__content"></div>
+      </section>
+
+      <section id="section-buying" class="section section--buying">
+        <header class="section__header">
+          <div class="section__icon">💰</div>
+          <div class="section__info">
+            <h2 class="section__title">買房注意事項</h2>
+            <p class="section__subtitle">決定購買前需要評估確認的事項</p>
+          </div>
+          <button class="section__toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </header>
+        <div class="section__content"></div>
+      </section>
+
+      <section id="section-handover" class="section section--handover">
+        <header class="section__header">
+          <div class="section__icon">🔑</div>
+          <div class="section__info">
+            <h2 class="section__title">交屋注意事項</h2>
+            <p class="section__subtitle">驗收交屋時必須檢查的所有項目</p>
+          </div>
+          <button class="section__toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </header>
+        <div class="section__content"></div>
+      </section>
+
+      <section id="section-loan" class="section section--loan">
+        <header class="section__header">
+          <div class="section__icon">🏦</div>
+          <div class="section__info">
+            <h2 class="section__title">貸款注意事項</h2>
+            <p class="section__subtitle">房屋貸款申請的準備與流程</p>
+          </div>
+          <button class="section__toggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </header>
+        <div class="section__content"></div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>買房紀錄 © 2026</p>
+    </footer>
+  </div>
+
+  <script src="notes.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
